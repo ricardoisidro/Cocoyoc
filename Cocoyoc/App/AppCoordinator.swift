@@ -23,11 +23,36 @@ private extension AppCoordinator {
     func startCocoyocApp() {
         let loadingViewController = LoadingViewController()
         containerController.add(loadingViewController)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            loadingViewController.remove()
+            self.startWebCoordinator()
+        }
     }
     
     func startLoginCoordinator() {
         let loginCoordinator = LoginCoordinator(containerController: containerController)
+        loginCoordinator.delegate = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
+    }
+    
+    func startWebCoordinator() {
+        let webCoordinator = WebCoordinator(navigationController: UINavigationController.makeForMainNavigation())
+        webCoordinator.start()
+        show(container: webCoordinator.containerController)
+        childCoordinators.append(webCoordinator)
+    }
+    
+    func show(container: UIViewController) {
+        containerController.children.forEach { $0.remove() }
+        containerController.add(container)
+    }
+}
+
+extension AppCoordinator: LoginCoordinatorDelegate {
+    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator) {
+        containerController.children.forEach { $0.remove() }
+        childCoordinators.removeAll()
+        startCocoyocApp()
     }
 }

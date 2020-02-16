@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Cocoyoc" customModuleProvider="target">
             <connections>
+                <outlet property="passwordTextField" destination="M2m-IF-GBw" id="hWb-IA-2ae"/>
+                <outlet property="usernameTextField" destination="x6L-TV-4kf" id="Qot-Ux-v1o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGINVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFK-oc-XMM">
-                    <rect key="frame" x="170.66666666666666" y="437.66666666666669" width="73" height="21"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yfz-XE-Hm3">
+                    <rect key="frame" x="103.66666666666669" y="379" width="207" height="138"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x6L-TV-4kf">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2m-IF-GBw">
+                            <rect key="frame" x="0.0" y="54" width="207" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPz-Pa-3ps">
+                            <rect key="frame" x="0.0" y="108" width="207" height="30"/>
+                            <state key="normal" title="Ingresar"/>
+                            <connections>
+                                <action selector="buttonDidTouchUpinside:" destination="-1" eventType="touchUpInside" id="VMg-dz-gDL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cocoyoc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azc-j5-VY9">
+                    <rect key="frame" x="173.33333333333334" y="214" width="67.333333333333343" height="20.333333333333343"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -27,8 +51,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="PFK-oc-XMM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7Gc-lc-riN"/>
-                <constraint firstItem="PFK-oc-XMM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XEb-2I-erR"/>
+                <constraint firstItem="azc-j5-VY9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.5" id="Lqj-98-yb6"/>
+                <constraint firstItem="yfz-XE-Hm3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="RsU-Ge-HdJ"/>
+                <constraint firstItem="yfz-XE-Hm3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WgE-0m-01g"/>
+                <constraint firstItem="azc-j5-VY9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="igJ-Rw-SAV"/>
+                <constraint firstItem="yfz-XE-Hm3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="yp1-YU-5sQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="117"/>

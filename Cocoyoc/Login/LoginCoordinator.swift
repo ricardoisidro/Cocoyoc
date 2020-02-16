@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol LoginCoordinatorDelegate: class {
+    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator)
+}
+
 class LoginCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
     var containerController = UIViewController()
+    
+    weak var delegate: LoginCoordinatorDelegate?
     
     init(containerController: UIViewController) {
         self.containerController = containerController
@@ -25,9 +31,16 @@ class LoginCoordinator: NSObject, Coordinator {
 private extension LoginCoordinator {
     
     func startLogin() {
-        containerController.add(LoadingViewController())
+        //containerController.add(LoadingViewController())
         let loginViewController = LoginViewController()
+        loginViewController.delegate = self
         containerController.remove()
         containerController.add(loginViewController)
+    }
+}
+
+extension LoginCoordinator: LoginViewControllerDelegate {
+    func loginViewControllerDidTapButton(_ loginViewController: LoginViewController) {
+        delegate?.loginCoordinatorDidFinish(self)
     }
 }

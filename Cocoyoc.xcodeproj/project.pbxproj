@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8C6C9F5123F8E6B500DBDEDF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5023F8E6B500DBDEDF /* README.md */; };
+		8C6C9F5423F8F1EC00DBDEDF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */; };
+		8C6C9F5523F8F1EC00DBDEDF /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */; };
+		8C6C9F5723F8F70D00DBDEDF /* WebCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */; };
+		8C6C9F5923F8FDF700DBDEDF /* UINavigationController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */; };
 		8CE3471C23F7A957005625BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE3471B23F7A957005625BC /* AppDelegate.swift */; };
 		8CE3472523F7A959005625BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE3472423F7A959005625BC /* Assets.xcassets */; };
 		8CE3472823F7A959005625BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE3472623F7A959005625BC /* LaunchScreen.storyboard */; };
@@ -22,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		8C6C9F5023F8E6B500DBDEDF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCoordinator.swift; sourceTree = "<group>"; };
+		8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utils.swift"; sourceTree = "<group>"; };
 		8CE3471823F7A957005625BC /* Cocoyoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoyoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE3471B23F7A957005625BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CE3472423F7A959005625BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +100,9 @@
 		8CE3473023F7AADD005625BC /* Webview */ = {
 			isa = PBXGroup;
 			children = (
+				8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */,
+				8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */,
+				8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */,
 			);
 			path = Webview;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 			children = (
 				8CE3473D23F7B1B3005625BC /* UIViewController+Child.swift */,
 				8CE3473F23F7B259005625BC /* LoadingViewController.swift */,
+				8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 				8CE3473423F7AB11005625BC /* LoginViewController.xib in Resources */,
 				8CE3472823F7A959005625BC /* LaunchScreen.storyboard in Resources */,
 				8C6C9F5123F8E6B500DBDEDF /* README.md in Resources */,
+				8C6C9F5523F8F1EC00DBDEDF /* WebViewController.xib in Resources */,
 				8CE3472523F7A959005625BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,12 +200,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CE3473B23F7AF65005625BC /* LoginCoordinator.swift in Sources */,
+				8C6C9F5723F8F70D00DBDEDF /* WebCoordinator.swift in Sources */,
 				8CE3473723F7ADDF005625BC /* AppCoordinator.swift in Sources */,
 				8CE3473E23F7B1B3005625BC /* UIViewController+Child.swift in Sources */,
 				8CE3474023F7B259005625BC /* LoadingViewController.swift in Sources */,
 				8CE3473323F7AB11005625BC /* LoginViewController.swift in Sources */,
 				8CE3473923F7AE1D005625BC /* Coordinator.swift in Sources */,
+				8C6C9F5923F8FDF700DBDEDF /* UINavigationController+Utils.swift in Sources */,
 				8CE3471C23F7A957005625BC /* AppDelegate.swift in Sources */,
+				8C6C9F5423F8F1EC00DBDEDF /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
