@@ -21,6 +21,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     @IBAction func buttonDidTouchUpinside(_ sender: UIButton) {
@@ -30,5 +38,27 @@ class LoginViewController: UIViewController {
             delegate?.loginViewControllerDidTapButton(self)
         }
         
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            passwordTextField.resignFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.underlineWhenSelected()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.underlineWhenUnselected()
     }
 }
