@@ -15,7 +15,7 @@ protocol LoginCoordinatorDelegate: class {
 class LoginCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var containerController = UIViewController()
+    var containerController: UIViewController
     
     weak var delegate: LoginCoordinatorDelegate?
     
@@ -31,10 +31,9 @@ class LoginCoordinator: NSObject, Coordinator {
 private extension LoginCoordinator {
     
     func startLogin() {
-        //containerController.add(LoadingViewController())
-        let loginViewController = LoginViewController()
+        let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController.view.frame = containerController.view.frame
         loginViewController.delegate = self
-        containerController.remove()
         containerController.add(loginViewController)
     }
 }

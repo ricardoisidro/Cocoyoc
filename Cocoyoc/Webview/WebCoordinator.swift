@@ -11,7 +11,7 @@ import UIKit
 class WebCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var containerController = UIViewController()
+    var containerController: UIViewController
     private var navigationController: UINavigationController {
         return containerController as! UINavigationController
     }

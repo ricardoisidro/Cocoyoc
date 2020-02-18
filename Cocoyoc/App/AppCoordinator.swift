@@ -10,8 +10,8 @@ import UIKit
 
 class AppCoordinator: Coordinator {
 
-    var childCoordinators = [Coordinator]()
-    var containerController = UIViewController()
+    private(set) var childCoordinators = [Coordinator]()
+    private(set) var containerController = UIViewController()
     
     func start() {
         startLoginCoordinator()
