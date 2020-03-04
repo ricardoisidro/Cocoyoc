@@ -26,7 +26,8 @@ private extension WebViewController {
     func createURLWithComponents() -> URL? {
         let components = NSURLComponents()
         components.scheme = "https"
-        components.host = "www.google.com"
+        components.host = "www.sath.com.mx"
+        components.path = "/PropietariosCocoyoc/"
         //components.user = "julio"
         //components.password = "palacios"
         return components.url

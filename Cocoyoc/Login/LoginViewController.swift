@@ -33,8 +33,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func buttonDidTouchUpinside(_ sender: UIButton) {
         guard let username = usernameTextField.text, let password = passwordTextField.text else { return }
-        if username == "user" && password == "pass" {
-            print("Logged in")
+        if username == "Cocoyoc" && password == "2019C" {
             delegate?.loginViewControllerDidTapButton(self)
         }
         
