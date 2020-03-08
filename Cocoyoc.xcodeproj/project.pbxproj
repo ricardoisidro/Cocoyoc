@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4837C324024223004DC23D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4837C224024223004DC23D /* PersistenceController.swift */; };
+		8C4837C5240242BE004DC23D /* KeychainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4837C4240242BE004DC23D /* KeychainController.swift */; };
 		8C6C9F5123F8E6B500DBDEDF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5023F8E6B500DBDEDF /* README.md */; };
 		8C6C9F5423F8F1EC00DBDEDF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */; };
 		8C6C9F5523F8F1EC00DBDEDF /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */; };
 		8C6C9F5723F8F70D00DBDEDF /* WebCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */; };
 		8C6C9F5923F8FDF700DBDEDF /* UINavigationController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */; };
 		8CC9D1EE23FBA26100335533 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9D1ED23FBA26100335533 /* UITextField+Utils.swift */; };
+		8CD20B80241435470005B966 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD20B7F241435470005B966 /* LoginManager.swift */; };
+		8CD20B82241436AC0005B966 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD20B81241436AC0005B966 /* WebViewManager.swift */; };
 		8CE3471C23F7A957005625BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE3471B23F7A957005625BC /* AppDelegate.swift */; };
 		8CE3472523F7A959005625BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE3472423F7A959005625BC /* Assets.xcassets */; };
 		8CE3472823F7A959005625BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CE3472623F7A959005625BC /* LaunchScreen.storyboard */; };
@@ -26,12 +30,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C4837C224024223004DC23D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		8C4837C4240242BE004DC23D /* KeychainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainController.swift; sourceTree = "<group>"; };
 		8C6C9F5023F8E6B500DBDEDF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCoordinator.swift; sourceTree = "<group>"; };
 		8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utils.swift"; sourceTree = "<group>"; };
 		8CC9D1ED23FBA26100335533 /* UITextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
+		8CD20B7F241435470005B966 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		8CD20B81241436AC0005B966 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
 		8CE3471823F7A957005625BC /* Cocoyoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoyoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE3471B23F7A957005625BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CE3472423F7A959005625BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C4837C12402420A004DC23D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				8C4837C224024223004DC23D /* PersistenceController.swift */,
+				8C4837C4240242BE004DC23D /* KeychainController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		8CE3470F23F7A957005625BC = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +94,7 @@
 		8CE3471A23F7A957005625BC /* Cocoyoc */ = {
 			isa = PBXGroup;
 			children = (
+				8C4837C12402420A004DC23D /* Persistence */,
 				8CE3473C23F7B193005625BC /* Utils */,
 				8CE3473523F7ADC3005625BC /* App */,
 				8CE3473023F7AADD005625BC /* Webview */,
@@ -95,6 +113,7 @@
 				8CE3473123F7AB10005625BC /* LoginViewController.swift */,
 				8CE3473223F7AB10005625BC /* LoginViewController.xib */,
 				8CE3473A23F7AF65005625BC /* LoginCoordinator.swift */,
+				8CD20B7F241435470005B966 /* LoginManager.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -105,6 +124,7 @@
 				8C6C9F5223F8F1EC00DBDEDF /* WebViewController.swift */,
 				8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */,
 				8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */,
+				8CD20B81241436AC0005B966 /* WebViewManager.swift */,
 			);
 			path = Webview;
 			sourceTree = "<group>";
@@ -205,10 +225,14 @@
 				8CC9D1EE23FBA26100335533 /* UITextField+Utils.swift in Sources */,
 				8CE3473B23F7AF65005625BC /* LoginCoordinator.swift in Sources */,
 				8C6C9F5723F8F70D00DBDEDF /* WebCoordinator.swift in Sources */,
+				8C4837C324024223004DC23D /* PersistenceController.swift in Sources */,
+				8CD20B82241436AC0005B966 /* WebViewManager.swift in Sources */,
 				8CE3473723F7ADDF005625BC /* AppCoordinator.swift in Sources */,
 				8CE3473E23F7B1B3005625BC /* UIViewController+Child.swift in Sources */,
 				8CE3474023F7B259005625BC /* LoadingViewController.swift in Sources */,
 				8CE3473323F7AB11005625BC /* LoginViewController.swift in Sources */,
+				8C4837C5240242BE004DC23D /* KeychainController.swift in Sources */,
+				8CD20B80241435470005B966 /* LoginManager.swift in Sources */,
 				8CE3473923F7AE1D005625BC /* Coordinator.swift in Sources */,
 				8C6C9F5923F8FDF700DBDEDF /* UINavigationController+Utils.swift in Sources */,
 				8CE3471C23F7A957005625BC /* AppDelegate.swift in Sources */,

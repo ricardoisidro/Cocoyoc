@@ -12,9 +12,15 @@ class AppCoordinator: Coordinator {
 
     private(set) var childCoordinators = [Coordinator]()
     private(set) var containerController = UIViewController()
+    private let persistenceController = PersistenceController()
     
     func start() {
-        startLoginCoordinator()
+        persistenceController.loadUser()
+        guard persistenceController.loggedUser != nil else {
+            startLoginCoordinator()
+            return
+        }
+        startCocoyocApp()
     }
 }
 
@@ -37,7 +43,7 @@ private extension AppCoordinator {
     }
     
     func startWebCoordinator() {
-        let webCoordinator = WebCoordinator(navigationController: UINavigationController.makeForMainNavigation())
+        let webCoordinator = WebCoordinator(navigationController: UINavigationController.makeForMainNavigation(), persistenceController: persistenceController)
         webCoordinator.start()
         show(container: webCoordinator.containerController)
         childCoordinators.append(webCoordinator)
@@ -50,9 +56,11 @@ private extension AppCoordinator {
 }
 
 extension AppCoordinator: LoginCoordinatorDelegate {
-    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator) {
+
+    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator, with mail: String, and password: String) {
         containerController.children.forEach { $0.remove() }
         childCoordinators.removeAll()
+        try? persistenceController.save(UserAuthentication(email: mail, password: password))
         startCocoyocApp()
     }
 }

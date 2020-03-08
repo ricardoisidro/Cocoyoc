@@ -12,24 +12,16 @@ import WebKit
 class WebViewController: UIViewController {
 
     @IBOutlet private weak var webView: WKWebView!
+    private let webViewManager = WebViewManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let url = createURLWithComponents() else { return }
+        guard let url = webViewManager.createURLRequest() else { return }
         let request = URLRequest(url: url)
         webView.load(request)
     }
-}
-
-private extension WebViewController {
     
-    func createURLWithComponents() -> URL? {
-        let components = NSURLComponents()
-        components.scheme = "https"
-        components.host = "www.sath.com.mx"
-        components.path = "/PropietariosCocoyoc/"
-        //components.user = "julio"
-        //components.password = "palacios"
-        return components.url
+    func load(_ userCredentials: UserAuthentication) {
+        webViewManager.set(userCredentials)
     }
 }

@@ -12,16 +12,22 @@ class WebCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
     var containerController: UIViewController
+    private let persistenceController: PersistenceController
+
     private var navigationController: UINavigationController {
         return containerController as! UINavigationController
     }
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, persistenceController: PersistenceController) {
         self.containerController = navigationController
+        self.persistenceController = persistenceController
     }
 
     func start() {
         let webViewController = WebViewController()
+        let authentication = persistenceController.loggedUser!
+        webViewController.load(authentication)
+        navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.pushViewController(webViewController, animated: true)
     }
 }

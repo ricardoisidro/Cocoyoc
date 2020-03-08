@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginViewControllerDelegate: class {
-    func loginViewControllerDidTapButton(_ loginViewController: LoginViewController)
+    func loginViewControllerDidTapButton(_ loginViewController: LoginViewController, _ email: String, _ password: String)
 }
 
 class LoginViewController: UIViewController {
@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
 
     weak var delegate: LoginViewControllerDelegate?
+    private var loginManager = LoginManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,20 @@ class LoginViewController: UIViewController {
 
     @IBAction func buttonDidTouchUpinside(_ sender: UIButton) {
         guard let username = usernameTextField.text, let password = passwordTextField.text else { return }
-        if username == "Cocoyoc" && password == "2019C" {
-            delegate?.loginViewControllerDidTapButton(self)
+        if loginManager.validate(username, password) {
+            delegate?.loginViewControllerDidTapButton(self, username, password)
+        } else {
+            showErrorAlert()
         }
-        
+    }
+}
+
+private extension LoginViewController {
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(title: "Ingresar datos", message: "Escribe usuario y contraseña", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

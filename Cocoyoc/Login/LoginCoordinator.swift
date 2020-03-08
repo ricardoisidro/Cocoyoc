@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoginCoordinatorDelegate: class {
-    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator)
+    func loginCoordinatorDidFinish(_ loginCoordinator: LoginCoordinator, with mail: String, and password: String)
 }
 
 class LoginCoordinator: NSObject, Coordinator {
@@ -39,7 +39,7 @@ private extension LoginCoordinator {
 }
 
 extension LoginCoordinator: LoginViewControllerDelegate {
-    func loginViewControllerDidTapButton(_ loginViewController: LoginViewController) {
-        delegate?.loginCoordinatorDidFinish(self)
+    func loginViewControllerDidTapButton(_ loginViewController: LoginViewController, _ email: String, _ password: String) {
+        delegate?.loginCoordinatorDidFinish(self, with: email, and: password)
     }
 }
