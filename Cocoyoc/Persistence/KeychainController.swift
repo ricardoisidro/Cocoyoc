@@ -36,6 +36,10 @@ class KeychainController {
         }
         
     }
+    
+    func removeUser() {
+        save(objectData: nil, forKey: .user)
+    }
 }
 
 private extension KeychainController {

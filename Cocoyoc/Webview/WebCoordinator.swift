@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol WebCoordinatorDelegate: class {
+    func webCoordinatorDidFinish(_ webCoordinator: WebCoordinator)
+}
+
 class WebCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
     var containerController: UIViewController
     private let persistenceController: PersistenceController
+
+    weak var delegate: WebCoordinatorDelegate?
 
     private var navigationController: UINavigationController {
         return containerController as! UINavigationController
@@ -25,9 +31,16 @@ class WebCoordinator: NSObject, Coordinator {
 
     func start() {
         let webViewController = WebViewController()
+        webViewController.delegate = self
         let authentication = persistenceController.loggedUser!
         webViewController.load(authentication)
         navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.pushViewController(webViewController, animated: true)
+    }
+}
+
+extension WebCoordinator: WebViewControllerDelegate {
+    func webViewControllerDidFinish(_ webViewController: WebViewController) {
+        delegate?.webCoordinatorDidFinish(self)
     }
 }

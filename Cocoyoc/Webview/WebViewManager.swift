@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import WebKit
 
-class WebViewManager {
+protocol WebViewManagerDelegate: class {
+    func webViewManagerDetectedNoAccess(_ webViewManager: WebViewManager)
+}
+
+class WebViewManager: NSObject {
     
     private var authentication: UserAuthentication!
     private let defaultURL = URL(string: "https://www.sath.com.mx/PropietariosCocoyoc")
     
+    weak var delegate: WebViewManagerDelegate?
+
     func set(_ userAuthentication: UserAuthentication) {
         self.authentication = userAuthentication
     }
@@ -27,5 +34,27 @@ class WebViewManager {
         let queryPassword = URLQueryItem(name: "password", value: authentication.password)
         components.queryItems = [queryEmail, queryPassword]
         return components.url
+    }
+}
+
+extension WebViewManager: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if let host = navigationAction.request.url?.host {
+            if host.contains("sath.com.mx") {
+                decisionHandler(.allow)
+                return
+            }
+        }
+        decisionHandler(.cancel)
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("document.body.textContent") { (result, _) in
+            guard let textContent = result as? String else { return }
+            if textContent.elementsEqual("NO:ACCESS") {
+                self.delegate?.webViewManagerDetectedNoAccess(self)
+            }
+        }
     }
 }

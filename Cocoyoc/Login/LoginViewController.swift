@@ -16,9 +16,11 @@ class LoginViewController: UIViewController {
 
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-
+    @IBOutlet private weak var failLabel: UILabel!
+    
     weak var delegate: LoginViewControllerDelegate?
     private var loginManager = LoginManager()
+    var labelHidden: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,12 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let hidden = labelHidden else { return }
+        failLabel.isHidden = hidden
     }
 
     @objc func dismissKeyboard() {

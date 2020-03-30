@@ -21,4 +21,8 @@ class PersistenceController {
     func loadUser() {
         loggedUser = keychainController.loadUser()
     }
+    
+    func removeUser() {
+        keychainController.removeUser()
+    }
 }

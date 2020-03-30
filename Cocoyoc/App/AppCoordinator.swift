@@ -35,8 +35,8 @@ private extension AppCoordinator {
         }
     }
     
-    func startLoginCoordinator() {
-        let loginCoordinator = LoginCoordinator(containerController: containerController)
+    func startLoginCoordinator(hideLabel: Bool = true) {
+        let loginCoordinator = LoginCoordinator(containerController: containerController, labelHidden: hideLabel)
         loginCoordinator.delegate = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
@@ -44,6 +44,7 @@ private extension AppCoordinator {
     
     func startWebCoordinator() {
         let webCoordinator = WebCoordinator(navigationController: UINavigationController.makeForMainNavigation(), persistenceController: persistenceController)
+        webCoordinator.delegate = self
         webCoordinator.start()
         show(container: webCoordinator.containerController)
         childCoordinators.append(webCoordinator)
@@ -62,5 +63,14 @@ extension AppCoordinator: LoginCoordinatorDelegate {
         childCoordinators.removeAll()
         try? persistenceController.save(UserAuthentication(email: mail, password: password))
         startCocoyocApp()
+    }
+}
+
+extension AppCoordinator: WebCoordinatorDelegate {
+    func webCoordinatorDidFinish(_ webCoordinator: WebCoordinator) {
+        containerController.children.forEach { $0.remove() }
+        childCoordinators.removeAll()
+        persistenceController.removeUser()
+        startLoginCoordinator(hideLabel: false)
     }
 }

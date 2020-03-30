@@ -16,11 +16,13 @@ class LoginCoordinator: NSObject, Coordinator {
 
     var childCoordinators = [Coordinator]()
     var containerController: UIViewController
+    var isLabelHidden: Bool = true
     
     weak var delegate: LoginCoordinatorDelegate?
     
-    init(containerController: UIViewController) {
+    init(containerController: UIViewController, labelHidden: Bool) {
         self.containerController = containerController
+        self.isLabelHidden = labelHidden
     }
     
     func start() {
@@ -34,6 +36,7 @@ private extension LoginCoordinator {
         let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         loginViewController.view.frame = containerController.view.frame
         loginViewController.delegate = self
+        loginViewController.labelHidden = isLabelHidden
         containerController.add(loginViewController)
     }
 }
