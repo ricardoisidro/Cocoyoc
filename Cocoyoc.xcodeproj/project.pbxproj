@@ -14,6 +14,7 @@
 		8C6C9F5523F8F1EC00DBDEDF /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */; };
 		8C6C9F5723F8F70D00DBDEDF /* WebCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */; };
 		8C6C9F5923F8FDF700DBDEDF /* UINavigationController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */; };
+		8C7CEDB224994C0D007F2305 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7CEDB124994C0D007F2305 /* WebKit.framework */; };
 		8CC9D1EE23FBA26100335533 /* UITextField+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9D1ED23FBA26100335533 /* UITextField+Utils.swift */; };
 		8CD20B80241435470005B966 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD20B7F241435470005B966 /* LoginManager.swift */; };
 		8CD20B82241436AC0005B966 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD20B81241436AC0005B966 /* WebViewManager.swift */; };
@@ -37,6 +38,7 @@
 		8C6C9F5323F8F1EC00DBDEDF /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		8C6C9F5623F8F70D00DBDEDF /* WebCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCoordinator.swift; sourceTree = "<group>"; };
 		8C6C9F5823F8FDF700DBDEDF /* UINavigationController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utils.swift"; sourceTree = "<group>"; };
+		8C7CEDB124994C0D007F2305 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8CC9D1ED23FBA26100335533 /* UITextField+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Utils.swift"; sourceTree = "<group>"; };
 		8CD20B7F241435470005B966 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		8CD20B81241436AC0005B966 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C7CEDB224994C0D007F2305 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +77,21 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		8C7CEDB024994C0D007F2305 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C7CEDB124994C0D007F2305 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8CE3470F23F7A957005625BC = {
 			isa = PBXGroup;
 			children = (
 				8C6C9F5023F8E6B500DBDEDF /* README.md */,
 				8CE3471A23F7A957005625BC /* Cocoyoc */,
 				8CE3471923F7A957005625BC /* Products */,
+				8C7CEDB024994C0D007F2305 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
